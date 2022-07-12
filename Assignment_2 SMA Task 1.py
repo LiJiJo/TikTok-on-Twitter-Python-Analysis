@@ -718,8 +718,8 @@ def get_user_tweets(api, username):
 # # data['DisplayName'] = [tweet.user.name for tweet in tiktoktweets]
 # # data['Verified'] = [tweet.user.verified for tweet in tiktoktweets]
 
-data=pd.read_csv("TikTokTweets.csv")
-# data.to_csv("TikTokTweets.csv")
+data=pd.read_csv("TikTokProfileTweets.csv")
+# data.to_csv("TikTokProfileTweets.csv")
 print("Earliest tweet is at ", min(data['Date']))
 print("Latest tweet is at ", max(data['Date']))
 
