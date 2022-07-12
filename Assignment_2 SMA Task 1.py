@@ -718,7 +718,7 @@ def get_user_tweets(api, username):
 # # data['DisplayName'] = [tweet.user.name for tweet in tiktoktweets]
 # # data['Verified'] = [tweet.user.verified for tweet in tiktoktweets]
 
-data=pd.read_csv("TikTokUserTweets.csv")
+data=pd.read_csv("TikTokTweets.csv")
 # data.to_csv("TikTokTweets.csv")
 print("Earliest tweet is at ", min(data['Date']))
 print("Latest tweet is at ", max(data['Date']))
@@ -918,17 +918,18 @@ def keyword_tweetsandreplies(api,keyword,number_of_tweets):
 tiktok_newstweets=keyword_tweetsandreplies(extractor,"https://www.businessinsider.com/tiktok-confirms-us-user-data-accessed-in-china-bytedance-2022-7",2400)
 
 # create a panda DataFrame by looping through each element and add it to the DataFrame
-data = pd.DataFrame(data=[tweet.full_text for tweet in tiktok_newstweets], 
-                    columns=['Tweets'])
-data['Tweets_ID'] = [tweet.id for tweet in tiktok_newstweets]
-data['Date'] = [tweet.created_at for tweet in tiktok_newstweets]
-data['Source'] = [tweet.source for tweet in tiktok_newstweets]
-data['Likes_no'] = [tweet.favorite_count for tweet in tiktok_newstweets]
-data['Retweets_no'] = [tweet.retweet_count for tweet in tiktok_newstweets]
+#data = pd.DataFrame(data=[tweet.full_text for tweet in tiktok_newstweets], 
+#                    columns=['Tweets'])
+#data['Tweets_ID'] = [tweet.id for tweet in tiktok_newstweets]
+#data['Date'] = [tweet.created_at for tweet in tiktok_newstweets]
+#data['Source'] = [tweet.source for tweet in tiktok_newstweets]
+#data['Likes_no'] = [tweet.favorite_count for tweet in tiktok_newstweets]
+#data['Retweets_no'] = [tweet.retweet_count for tweet in tiktok_newstweets]
 
 data=data.drop_duplicates(subset=('Tweets'))
 
-data.to_csv("TikTokNewsTweets.csv")
+#data.to_csv("TikTokNewsTweets.csv")
+data=pd.read_csv("TikTokNewsTweets.csv")
 
 def remove_noise(tweet_tokens, stop_words):
     cleaned_tokens=[]
